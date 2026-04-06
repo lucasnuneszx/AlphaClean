@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   keywords: "detalhamento automotivo, polimento, vitrificação cerâmica, lavagem técnica, car detailing",
   openGraph: {
     title: "Alpha Clean | Estética Automotiva Premium",
-    description: "Não lavamos carros. Restauramos a dominância estética da sua máquina.",
+    description: "Não lavamos carros. Restauramos a dominância estética do seu carro.",
     type: "website",
   },
 };
