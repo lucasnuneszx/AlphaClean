@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:wght@300;400;700&family=Syncopate:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+::selection {
+  background: rgba(159, 230, 0, 0.3); /* Verde Neon Selection */
+  color: #fff;
+}
+
+html { 
+  scroll-behavior: smooth; 
+  background-color: #000c24; 
+}
+
+.container-custom {
+  @apply max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-24;
+}
+
+body {
+  background-color: #000c24; /* Azul Escuro Profundo (Base #0062ff dark variant) */
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── Scrollbar ─────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #000c24; }
+::-webkit-scrollbar-thumb { background: #9fe600; } /* Verde Neon */
+
+/* ─── Cinematic Background (Noise) ──────── */
+.noise-bg {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+}
+
+/* ─── Text Glow Effect ────────────────── */
+.text-glow-neon {
+  text-shadow: 0 0 15px rgba(159, 230, 0, 0.4);
+}
+
+/* ─── Glow Elements ──────────────────────── */
+.glow-neon {
+  box-shadow: 0 0 30px rgba(159, 230, 0, 0.2), 0 0 60px rgba(159, 230, 0, 0.05);
+}
+
+/* ─── Custom Layout Utilities ────────────── */
+@layer utilities {
+  .bg-navy-900 { background-color: #000c24; }
+  .bg-blue-brand { background-color: #0062ff; }
+  .text-neon { color: #9fe600; }
+  .bg-neon { background-color: #9fe600; }
+  .border-neon { border-color: #9fe600; }
+}

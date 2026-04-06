@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id         String     @id @default(uuid())
+  name       String
+  phone      String     @unique
+  email      String?    @unique
+  created_at DateTime   @default(now())
+  vehicles   Vehicle[]
+}
+
+model Vehicle {
+  id            String     @id @default(uuid())
+  client_id     String
+  client        Client     @relation(fields: [client_id], references: [id])
+  brand         String
+  model         String
+  license_plate String?    @unique
+  category      Category
+  job_orders    JobOrder[]
+}
+
+enum Category {
+  HATCH
+  SEDAN
+  SUV
+  PICKUP
+}
+
+model Service {
+  id                     String     @id @default(uuid())
+  name                   String
+  base_price             Float
+  estimated_time_minutes Int
+  job_orders             JobOrder[]
+}
+
+model JobOrder {
+  id             String    @id @default(uuid())
+  vehicle_id     String
+  vehicle        Vehicle   @relation(fields: [vehicle_id], references: [id])
+  service_id     String
+  service        Service   @relation(fields: [service_id], references: [id])
+  status         JobStatus @default(SCHEDULED)
+  total_price    Float
+  scheduled_date DateTime
+  chatwoot_id    String?   @unique // ID da conversa no Chatwoot
+  finance_id     String?   @unique
+  finance        Finance?  @relation(fields: [finance_id], references: [id])
+  created_at     DateTime  @default(now())
+  updated_at     DateTime  @updatedAt
+}
+
+enum JobStatus {
+  SCHEDULED       // Agendado
+  PREV_CHECK      // Check-in / Vistoria
+  IN_PROGRESS     // Em Execução
+  FINISHING       // Acabamento / Refino
+  QUALITY_CONTROL // Controle de Qualidade
+  READY           // Pronto para Entrega
+  COMPLETED       // Entregue / Finalizado
+}
+
+model Finance {
+  id          String         @id @default(uuid())
+  amount      Float
+  type        FinanceType    @default(INCOME)
+  category    FinanceCategory @default(SERVICE)
+  status      FinanceStatus  @default(PENDING)
+  description String?
+  job_order   JobOrder?
+  created_at  DateTime       @default(now())
+  updated_at  DateTime       @updatedAt
+}
+
+enum FinanceType {
+  INCOME  // Entrada
+  EXPENSE // Saída
+}
+
+enum FinanceCategory {
+  SERVICE     // Pagamento de Serviço
+  SUPPLIES    // Compra de Produtos
+  SALARY      // Pagamento Equipe
+  MAINTENANCE // Manutenção Equipamentos
+  OTHER       // Outros
+}
+
+enum FinanceStatus {
+  PENDING   // Pendente
+  PAID      // Pago / Recebido
+  CANCELLED // Cancelado
+}
