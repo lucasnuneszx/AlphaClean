@@ -14,14 +14,17 @@
 html { 
   scroll-behavior: smooth; 
   background-color: #000c24; 
+  overflow-x: hidden;
 }
 
 .container-custom {
-  @apply max-w-[1720px] mx-auto px-6 sm:px-12 lg:px-24;
+  @apply max-w-[1720px] mx-auto px-5 sm:px-12 lg:px-24;
 }
 
 body {
-  background-color: #000c24; /* Azul Escuro Profundo (Base #0062ff dark variant) */
+  background-color: #000c24; 
+  overflow-x: hidden;
+  width: 100%;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

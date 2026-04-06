@@ -35,7 +35,8 @@ export default function FinancePage() {
 
       {/* ── TRANSACTIONS TABLE ── */}
       <div className="bg-[#000c24]/40 border border-white/5 rounded-[2.5rem] overflow-hidden">
-         <table className="w-full text-left border-collapse">
+         <div className="overflow-x-auto scrollbar-hide">
+            <table className="w-full text-left border-collapse min-w-[800px]">
             <thead>
                <tr className="border-b border-white/5 bg-[#000c24]/40 backdrop-blur-md">
                   <th className="px-10 py-8 text-[9px] font-black text-white/20 uppercase tracking-[0.4em] font-[Syncopate]">Ref OS</th>
@@ -78,8 +79,9 @@ export default function FinancePage() {
                     </td>
                  </motion.tr>
                ))}
-            </tbody>
-         </table>
+             </tbody>
+          </table>
+         </div>
       </div>
 
       {/* ── SUMMARY CARDS ── */}

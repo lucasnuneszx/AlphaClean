@@ -40,15 +40,15 @@ export function Header() {
         <div className="container-custom flex items-center justify-between">
           
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-4 group relative z-[110]">
+          <Link href="/" className="flex items-center gap-3 sm:gap-4 group relative z-[110]">
             <div className="relative group-hover:scale-110 transition-transform">
-               <AlphaCleanLogo size={48} glow={false} />
+               <AlphaCleanLogo size={38} className="sm:size-[48px]" glow={false} />
             </div>
             <div className="flex flex-col">
-              <span className="font-[Syncopate] font-bold text-base tracking-[0.3em] text-white uppercase leading-none">
+              <span className="font-[Syncopate] font-bold text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] text-white uppercase leading-none">
                 Alpha<span className="text-[#9fe600]">Clean</span>
               </span>
-              <span className="font-[Inter] text-[9px] tracking-[0.5em] text-white/30 uppercase mt-1 px-1">Studio Lab</span>
+              <span className="hidden xs:block font-[Inter] text-[8px] sm:text-[9px] tracking-[0.5em] text-white/30 uppercase mt-1 px-1">Studio Lab</span>
             </div>
           </Link>
 
@@ -72,10 +72,10 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-8 relative z-[110]">
+          <div className="flex items-center gap-4 sm:gap-8 relative z-[110]">
             <button 
               onClick={handleWhatsApp}
-              className="hidden sm:flex px-10 py-4 bg-[#9fe600] text-[#000c24] font-[Syncopate] text-[11px] font-black tracking-[.2em] hover:brightness-110 hover:scale-105 transition-all active:scale-95 rounded-full shadow-[0_15px_40px_rgba(159,230,0,0.25)] border-2 border-white/10"
+              className="hidden md:flex px-10 py-4 bg-[#9fe600] text-[#000c24] font-[Syncopate] text-[11px] font-black tracking-[.2em] hover:brightness-110 hover:scale-105 transition-all active:scale-95 rounded-full shadow-[0_15px_40px_rgba(159,230,0,0.25)] border-2 border-white/10"
             >
                Agendar Lavagem
             </button>

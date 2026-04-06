@@ -12,7 +12,7 @@ export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoP
   return (
     <div 
       className={`relative flex items-center justify-center ${className}`}
-      style={{ width: size, height: size }}
+      style={!className.includes('size-') && !className.includes('w-') ? { width: size, height: size } : {}}
     >
       {/* GLOW LAYER */}
       {glow && (
