@@ -9,10 +9,12 @@ interface LogoProps {
 }
 
 export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoProps) {
+  const hasSizeClass = className.includes('w-') || className.includes('h-') || className.includes('size-');
+
   return (
     <div 
-      className={`relative flex items-center justify-center ${className}`}
-      style={!className.includes('size-') && !className.includes('w-') ? { width: size, height: size } : {}}
+      className={`relative flex items-center justify-center ${!hasSizeClass ? 'w-10 h-10' : ''} ${className}`}
+      style={!hasSizeClass ? { width: size, height: size } : {}}
     >
       {/* GLOW LAYER */}
       {glow && (

@@ -42,7 +42,7 @@ export function Header() {
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3 sm:gap-4 group relative z-[110]">
             <div className="relative group-hover:scale-110 transition-transform">
-               <AlphaCleanLogo size={38} className="sm:size-[48px]" glow={false} />
+               <AlphaCleanLogo className="w-[34px] h-[34px] xs:w-[38px] xs:h-[38px] sm:w-[48px] sm:h-[48px]" glow={false} />
             </div>
             <div className="flex flex-col">
               <span className="font-[Syncopate] font-bold text-sm sm:text-base tracking-[0.2em] sm:tracking-[0.3em] text-white uppercase leading-none">

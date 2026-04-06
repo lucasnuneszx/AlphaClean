@@ -2,16 +2,10 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import { AlphaCleanLogo } from "./AlphaCleanLogo";
 
 const WIPE_DUR = 1.3;
 const WIPE_EASE: [number, number, number, number] = [0.85, 0, 0.15, 1];
-
-const IconShield = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#9fe600" strokeWidth="1.5">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    <path d="M9 12l2 2 4-4" strokeWidth="2" />
-  </svg>
-);
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {
   const [phase, setPhase] = useState<"logo" | "wipe" | "done">("logo");
@@ -48,17 +42,15 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center gap-10"
             >
-              {/* Logo Frame */}
-              <div className="relative">
-                <motion.div 
-                   animate={{ rotate: 360 }}
-                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                   className="absolute -inset-8 border border-[#9fe600]/10 rounded-full"
-                />
-                <div className="w-24 h-24 rounded-full bg-[#9fe600]/5 border border-[#9fe600]/20 flex items-center justify-center backdrop-blur-xl relative z-10 shadow-[0_0_50px_rgba(159,230,0,0.1)]">
-                   <IconShield />
-                </div>
-              </div>
+               {/* Logo Frame */}
+               <div className="relative">
+                 <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    className="absolute -inset-12 border border-[#9fe600]/10 rounded-full"
+                 />
+                 <AlphaCleanLogo size={120} />
+               </div>
 
               {/* Textual Identity */}
               <div className="text-center overflow-hidden">

@@ -71,7 +71,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[110vh] flex flex-col justify-end pb-12 lg:pb-24 bg-[#000c24] overflow-hidden"
+      className="relative min-h-[110vh] flex flex-col justify-end pt-32 pb-12 lg:pb-24 bg-[#000c24] overflow-hidden"
     >
       {/* ── BACKGROUND PHOTOGRAPHY ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
