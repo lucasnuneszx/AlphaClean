@@ -50,6 +50,8 @@ const CONSULT_SERVICES = [
 export function ServiceSelector() {
   const [size, setSize] = useState<Size>("MEDIUM");
   const [baseId, setBaseId] = useState<string>("wash_car");
+  const [vehicleModel, setVehicleModel] = useState("");
+  const [vehiclePlate, setVehiclePlate] = useState("");
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
 
   const activeBase = BASE_SERVICES.find(s => s.id === baseId) || BASE_SERVICES[0];
@@ -71,7 +73,10 @@ export function ServiceSelector() {
   const handleWhatsApp = () => {
     const WA_NUMBER = "5511999990000";
     const addOnNames = ADD_ONS.filter(a => selectedAddOns.includes(a.id)).map(a => a.name).join(", ");
-    const text = `Ola! Vim pelo site da Alpha Clean. Quero agendar: ${activeBase.name} (${SIZES.find(s => s.id === size)?.label})${addOnNames ? ` + Adicionais: ${addOnNames}` : ""}. Total: R$ ${calculateTotal()}. Poderia confirmar?`;
+    const vehicleInfo = vehicleModel && vehiclePlate ? `Modelo do carro é ${vehicleModel} e placa ${vehiclePlate}. ` : "";
+    
+    const text = `Ola! Vim pelo site da Alpha Clean. ${vehicleInfo}Quero agendar: ${activeBase.name} (${SIZES.find(s => s.id === size)?.label})${addOnNames ? ` + Adicionais: ${addOnNames}` : ""}. Total: R$ ${calculateTotal()}. Poderia confirmar?`;
+    
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
@@ -203,6 +208,37 @@ export function ServiceSelector() {
               </div>
            </div>
 
+           {/* STEP 4: VEHICLE INFO */}
+           <div className="space-y-12">
+              <div className="flex items-center gap-4">
+                 <div className="w-8 h-8 rounded-full bg-[#9fe600] text-[#000c24] flex items-center justify-center font-black text-xs">4</div>
+                 <h3 className="font-[Syncopate] text-xs font-black text-white uppercase tracking-widest">Identificação do Veículo</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                 <div className="space-y-4">
+                    <label className="font-[Roboto_Mono] text-[10px] text-white/40 uppercase tracking-[0.3em] ml-4">Modelo do Carro</label>
+                    <input 
+                      type="text" 
+                      placeholder="Ex: VW Polo"
+                      value={vehicleModel}
+                      onChange={(e) => setVehicleModel(e.target.value)}
+                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-6 text-white font-[Inter] placeholder:text-white/10 focus:outline-none focus:border-[#9fe600]/40 transition-colors"
+                    />
+                 </div>
+                 <div className="space-y-4">
+                    <label className="font-[Roboto_Mono] text-[10px] text-white/40 uppercase tracking-[0.3em] ml-4">Placa</label>
+                    <input 
+                      type="text" 
+                      placeholder="Ex: ABC-1234"
+                      value={vehiclePlate}
+                      onChange={(e) => setVehiclePlate(e.target.value.toUpperCase())}
+                      className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-6 text-white font-[Inter] placeholder:text-white/10 focus:outline-none focus:border-[#9fe600]/40 transition-colors"
+                    />
+                 </div>
+              </div>
+           </div>
+
            {/* CONSULT SERVICES */}
            <div className="pt-12 border-t border-white/5 text-center">
               <span className="text-[10px] text-white/20 uppercase tracking-[0.4em] font-black mb-8 block">Serviços Sob Consulta</span>
@@ -224,6 +260,13 @@ export function ServiceSelector() {
                        Protocolo Selecionado <br />
                        <span className="text-white/40">{size} • {activeBase.name}</span>
                     </h4>
+                    {vehicleModel && vehiclePlate && (
+                      <div className="mt-4 flex items-center gap-3 justify-center md:justify-start">
+                        <span className="text-[10px] font-mono text-[#9fe600] bg-[#9fe600]/10 px-3 py-1 rounded-full uppercase tracking-widest shadow-sm border border-[#9fe600]/20">
+                          {vehicleModel} • {vehiclePlate}
+                        </span>
+                      </div>
+                    )}
                  </div>
                  <div className="flex flex-col items-center md:items-end gap-8">
                     <div className="text-center md:text-right">
