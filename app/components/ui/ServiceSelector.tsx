@@ -73,7 +73,8 @@ export function ServiceSelector() {
   const handleWhatsApp = () => {
     const WA_NUMBER = "5511999990000";
     const addOnNames = ADD_ONS.filter(a => selectedAddOns.includes(a.id)).map(a => a.name).join(", ");
-    const vehicleInfo = vehicleModel && vehiclePlate ? `Modelo do carro é ${vehicleModel} e placa ${vehiclePlate}. ` : "";
+    const vehicleTypeLabel = activeBase.type === "MOTO" ? "Modelo da moto é" : "Modelo do carro é";
+    const vehicleInfo = vehicleModel && vehiclePlate ? `${vehicleTypeLabel} ${vehicleModel} e placa ${vehiclePlate}. ` : "";
     
     const text = `Ola! Vim pelo site da Alpha Clean. ${vehicleInfo}Quero agendar: ${activeBase.name} (${SIZES.find(s => s.id === size)?.label})${addOnNames ? ` + Adicionais: ${addOnNames}` : ""}. Total: R$ ${calculateTotal()}. Poderia confirmar?`;
     
@@ -217,10 +218,12 @@ export function ServiceSelector() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                  <div className="space-y-4">
-                    <label className="font-[Roboto_Mono] text-[10px] text-white/40 uppercase tracking-[0.3em] ml-4">Modelo do Carro</label>
+                    <label className="font-[Roboto_Mono] text-[10px] text-white/40 uppercase tracking-[0.3em] ml-4">
+                      {activeBase.type === "MOTO" ? "Modelo da Moto" : "Modelo do Carro"}
+                    </label>
                     <input 
                       type="text" 
-                      placeholder="Ex: VW Polo"
+                      placeholder={activeBase.type === "MOTO" ? "Ex: Honda CB 500" : "Ex: VW Polo"}
                       value={vehicleModel}
                       onChange={(e) => setVehicleModel(e.target.value)}
                       className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-6 text-white font-[Inter] placeholder:text-white/10 focus:outline-none focus:border-[#9fe600]/40 transition-colors"
