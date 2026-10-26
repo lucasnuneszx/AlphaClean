@@ -1,67 +1,34 @@
-# AlphaClean Studio Lab
+# AlphaClean
 
-[![Laboratory Standard](https://img.shields.io/badge/Scale-Laboratory%20Grade-9fe600?style=for-the-badge)](https://alphaclean.com)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
-[![Framer Motion](https://img.shields.io/badge/Framer--Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://framer.com/motion)
+Site da Alpha Clean (estética automotiva) com orçamento e agendamento via WhatsApp, mais um painel administrativo (dashboard, kanban operacional, financeiro, clientes). Agendamentos confirmados no Chatwoot entram no banco por webhook.
 
-AlphaClean is a premium digital ecosystem for luxury automotive detailing. This project transitions the brand from traditional detailing to a **Surgical Automotive Laboratory** aesthetic, powered by the **Detalhatoriun OS** infrastructure.
+## Stack
 
-## 🧪 Visual Identity
+- Next.js 14 (App Router) + TypeScript
+- Tailwind CSS e Framer Motion
+- Prisma + PostgreSQL
 
-- **Background:** Cosmic Navy (#000c24) - A deep, clinical darkness.
-- **Accents:** Neon Green (#9fe600) - High-visibility surgical precision.
-- **Typography:** Syncopate (Authority) & Inter (Precision).
+## Rodando localmente
 
-## 🚀 Features
+```bash
+npm install          # roda prisma generate no postinstall
+npx prisma db push   # cria as tabelas a partir de prisma/schema.prisma
+npm run dev
+```
 
-### Public Studio Experience
-- **Cinematic Preloader:** Squeegee-style transition simulating a precision wash.
-- **Service Selector:** Interactive vehicle categorization and protocol selector.
-- **Professional Ticker:** Social proof via a high-fidelity automotive brand scroll.
-- **Mobile-First OS Menu:** Full-page immersive navigation for lab modules.
+Build de produção: `npm run build && npm start`. Lint: `npm run lint`.
 
-### AlphaCore Admin OS
-- **Operational Kanban:** Real-time bi-directional status tracking for detailing boxes.
-- **Finance Terminal:** High-contrast cash flow management and revenue projecting.
-- **Client Management:** Centralized database for luxury vehicle records.
-- **Technical Protocols:** Terminology sanitized for professional high-end detailing.
+## Variáveis de ambiente
 
-## 🛠 Tech Stack
+- `DATABASE_URL` — conexão PostgreSQL usada pelo Prisma
 
-- **Framework:** Next.js (App Router)
-- **Styling:** Tailwind CSS (Custom Design System)
-- **Animations:** Framer Motion
-- **Database:** Prisma + SQLite
-- **Environment:** Node.js 20+
+O número do WhatsApp fica em `lib/whatsapp.ts`.
 
-## 📦 Getting Started
+## Estrutura
 
-1. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Database Migration:**
-   ```bash
-   npx prisma migrate dev
-   ```
-
-3. **Development Server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Production Build:**
-   ```bash
-   npm run build
-   ```
-
-## 📐 Architecture
-
-- `/app`: Unified routing and laboratory modules.
-- `/app/components/ui`: Surgical component library.
-- `/app/admin`: AlphaCore Executive OS.
-- `/public`: Branded imagery and laboratory assets.
-
----
-**AlphaClean Studio Lab** • *Detalhatoriun OS v4.2*
+- `app/page.tsx` — landing page
+- `app/components/ui/` — componentes do site
+- `app/admin/` — painel administrativo
+- `app/api/webhooks/chatwoot/` — webhook do Chatwoot
+- `lib/` — cliente Prisma e helpers
+- `prisma/schema.prisma` — modelos do banco
