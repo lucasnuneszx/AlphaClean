@@ -8,7 +8,7 @@ const BRANDS = [
   "CHEVROLET", "JEEP", "FORD", "VOLVO", "MITSUBISHI"
 ];
 
-// Double the array for seamless infinite scroll
+// Lista duplicada para o loop do ticker não ter emenda visível
 const TICKER_ITEMS = [...BRANDS, ...BRANDS];
 
 export function BrandTicker() {
@@ -45,12 +45,10 @@ export function BrandTicker() {
           ))}
         </motion.div>
 
-        {/* Fades */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#000c24] to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#000c24] to-transparent z-10" />
       </div>
 
-      {/* Decorative Line */}
       <div className="container-custom mt-20 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent w-full" />
     </section>
   );

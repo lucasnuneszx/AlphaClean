@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "./components/ui/Header";
 import { HeroSection } from "./components/ui/HeroSection";
@@ -9,8 +9,7 @@ import { Footer } from "./components/ui/Footer";
 import { Preloader } from "./components/ui/Preloader";
 import { BrandTicker } from "./components/ui/BrandTicker";
 
-// ─── CONFIG ───
-const WA_NUMBER = "5511999990000"; // Substitua pelo número real
+const WA_NUMBER = "5511999990000";
 
 const IconWA = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -38,10 +37,6 @@ function FloatingWA() {
 
 export default function Home() {
   const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    // No-op for analytics or future use
-  }, []);
 
   return (
     <main className="relative bg-[#000c24] selection:bg-[#9fe600]/30">

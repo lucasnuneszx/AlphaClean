@@ -18,7 +18,6 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-12">
-      {/* ── HERO STATS ── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         {STATS.map((stat, i) => (
           <motion.div
@@ -44,7 +43,6 @@ export default function AdminDashboard() {
                <div className="text-3xl font-[Syncopate] font-black text-white group-hover:text-[#9fe600] transition-colors">{stat.value}</div>
             </div>
 
-            {/* Sparkline Mock */}
             <div className="absolute bottom-0 left-0 right-0 h-16 opacity-10 group-hover:opacity-20 transition-opacity">
                <svg viewBox="0 0 100 40" className="w-full h-full preserve-3d">
                   <motion.path
@@ -62,10 +60,8 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      {/* ── MAIN CONTENT GRID ── */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* Receita Semanal - Maior Destaque */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -111,11 +107,9 @@ export default function AdminDashboard() {
               ))}
            </div>
            
-           {/* Background Mesh Glow */}
            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#9fe600]/5 blur-[100px] rounded-full pointer-events-none" />
         </motion.div>
 
-        {/* Status Diário - Gauge Chart Substituto */}
         <div className="space-y-8 flex flex-col">
            <motion.div 
              initial={{ opacity: 0, x: 20 }}
@@ -123,7 +117,6 @@ export default function AdminDashboard() {
              className="p-10 bg-[#000c24]/40 border border-white/5 rounded-[2.5rem] flex-1 flex flex-col items-center justify-center text-center relative group"
            >
               <div className="relative w-48 h-48 mb-6">
-                 {/* SVG Circular Gauge */}
                  <svg className="w-full h-full transform -rotate-90">
                     <circle
                       cx="96" cy="96" r="88"
@@ -136,7 +129,7 @@ export default function AdminDashboard() {
                       strokeWidth="12"
                       strokeDasharray="553"
                       initial={{ strokeDashoffset: 553 }}
-                      animate={{ strokeDashoffset: 165 }} // 70% Progress
+                      animate={{ strokeDashoffset: 165 }}
                       transition={{ duration: 2, ease: "circOut", delay: 1.5 }}
                       strokeLinecap="round"
                     />
@@ -150,7 +143,6 @@ export default function AdminDashboard() {
               <p className="text-[10px] text-white/20 mt-4 leading-relaxed max-w-[180px]">6 dos 8 boxes de detalhamento estão ocupados no momento.</p>
            </motion.div>
 
-           {/* Quick Actions / Activity */}
            <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
@@ -169,7 +161,6 @@ export default function AdminDashboard() {
 
       </div>
 
-      {/* ── RECENT ACTIVITY ── */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

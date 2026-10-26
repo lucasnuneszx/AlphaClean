@@ -28,12 +28,10 @@ export function Footer() {
 
   return (
     <footer className="relative bg-[#000c24] pt-32 pb-12 overflow-hidden border-t border-white/5">
-      {/* Glow Effect */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#9fe600]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container-custom relative z-10">
 
-        {/* Top CTA Module */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-10 pb-20 mb-20 border-b border-white/5">
           <div className="text-center md:text-left">
             <span className="font-[Inter] text-[10px] text-[#9fe600] tracking-[0.4em] uppercase font-bold mb-6 block">Laboratório de Estética Automotiva</span>
@@ -66,7 +64,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Links */}
           <div>
             <div className="font-[Inter] text-[10px] text-[#9fe600] tracking-[0.2em] uppercase font-bold mb-6">Explore</div>
             <ul className="space-y-4">
@@ -80,7 +77,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Cuidado Column (Terminology fix) */}
           <div>
             <div className="font-[Inter] text-[10px] text-[#9fe600] tracking-[0.2em] uppercase font-bold mb-6">Protocolos</div>
             <ul className="space-y-4">
@@ -92,7 +88,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contato Social */}
           <div className="space-y-6">
             <h4 className="font-[Syncopate] text-[10px] font-bold text-[#9fe600] uppercase tracking-[0.4em]">Conexão</h4>
             <div className="flex justify-center md:justify-start gap-4">
@@ -102,7 +97,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 group">
           <span className="text-white/20 text-[10px] uppercase font-bold tracking-widest">
             © {year} Alpha Clean Studio • São Paulo, SP

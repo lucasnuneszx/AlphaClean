@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
-// Real image paths from generation
 const HERO_IMG = "/images/detailing/hero.png";
 
 const STATS = [
@@ -73,7 +72,6 @@ export function HeroSection() {
       ref={containerRef}
       className="relative min-h-[110vh] flex flex-col justify-end pt-32 pb-12 lg:pb-24 bg-[#000c24] overflow-hidden"
     >
-      {/* ── BACKGROUND PHOTOGRAPHY ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div style={{ y: yImage, scale: scaleImage }} className="relative w-full h-full">
           <Image
@@ -83,18 +81,15 @@ export function HeroSection() {
             priority
             className="w-full h-full object-cover object-center opacity-60 grayscale-[20%] brightness-[0.7]"
           />
-          {/* Deep Navy Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#000c24] via-transparent to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#000c24] via-[#000c24]/40 to-transparent" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(159,230,0,0.05)_0%,transparent_50%)]" />
         </motion.div>
       </div>
 
-      {/* ── CONTENT ── */}
       <div className="container-custom relative z-10 mx-auto w-full">
         <motion.div style={{ opacity: opacityText }}>
 
-          {/* Human Tag */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -107,7 +102,6 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Headline */}
           <div className="max-w-4xl mb-12">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -132,7 +126,6 @@ export function HeroSection() {
             </motion.p>
           </div>
 
-          {/* CTA */}
           <div className="flex flex-col sm:flex-row items-center gap-6 mb-20">
             <button
               onClick={handleWhatsApp}
@@ -148,7 +141,6 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* Human Stats - Professional Grid Scaling */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 py-16 border-t border-white/5">
             {STATS.map((stat) => (
               <div key={stat.label} className="space-y-3 group/stat">

@@ -13,7 +13,6 @@ const CLIENTS = [
 export default function ClientsPage() {
   return (
     <div className="space-y-8">
-      {/* ── TOP ACTION BAR ── */}
       <div className="flex justify-between items-center bg-white/[0.02] border border-white/5 p-8 rounded-3xl">
          <div className="flex flex-col">
             <h2 className="font-[Syncopate] text-xs font-bold text-white uppercase tracking-widest">Base de Clientes</h2>
@@ -37,7 +36,6 @@ export default function ClientsPage() {
          </div>
       </div>
 
-      {/* ── CLIENTS LIST ── */}
       <div className="bg-white/[0.02] border border-white/5 rounded-3xl overflow-hidden">
          <table className="w-full text-left">
             <thead>

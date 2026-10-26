@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-// Colunas do Kanban baseadas no JobStatus da Prisma
+// Os ids seguem o enum JobStatus do schema Prisma
 const COLUMNS = [
   { id: "SCHEDULED", label: "Agendado", color: "bg-blue-500", icon: "📅" },
   { id: "PREV_CHECK", label: "Vistoria", color: "bg-purple-500", icon: "🔍" },
@@ -49,7 +49,6 @@ export default function KanbanPage() {
           transition={{ duration: 0.5 }}
           className="min-w-[88vw] sm:min-w-[340px] flex flex-col group bg-[#000c24]/20 rounded-[2.5rem] border border-white/5"
         >
-          {/* Header Coluna */}
           <div className="p-8 flex items-center justify-between">
              <div className="flex items-center gap-4">
                 <div className={`w-3 h-3 rounded-full ${col.color} shadow-[0_0_15px_currentColor]`} />
@@ -62,7 +61,6 @@ export default function KanbanPage() {
              </span>
           </div>
 
-          {/* Cards List */}
           <div className="flex-1 p-6 space-y-6 overflow-y-auto scrollbar-hide">
              <AnimatePresence mode="popLayout">
                {jobs.filter(j => j.status === col.id).map((job) => (
@@ -75,7 +73,6 @@ export default function KanbanPage() {
                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
                    className="p-6 bg-white/[0.03] border border-white/5 rounded-[2rem] cursor-grab active:cursor-grabbing hover:bg-white/[0.06] hover:border-[#9fe600]/30 transition-all group/card relative overflow-hidden"
                  >
-                    {/* Progress Indicator if in Execution */}
                     {job.status === "IN_PROGRESS" && (
                       <div className="absolute top-0 left-0 right-0 h-1 bg-[#9fe600]/20 overflow-hidden">
                         <motion.div 
@@ -105,14 +102,12 @@ export default function KanbanPage() {
                        </div>
                     </div>
 
-                    {/* Meta info if progress */}
                     {job.timeRemaining && (
                        <div className="mt-4 flex items-center gap-3 py-2 px-4 rounded-xl bg-[#9fe600]/10 border border-[#9fe600]/10 w-fit">
                           <span className="text-[9px] text-[#9fe600] font-black font-mono uppercase tracking-widest ring-offset-neutral-900 ring-neutral-400">Restam {job.timeRemaining}</span>
                        </div>
                     )}
 
-                    {/* Status Hot-Swaps */}
                     <div className="absolute inset-0 bg-[#000c24]/80 backdrop-blur-md opacity-0 group-hover/card:opacity-100 transition-all flex flex-col items-center justify-center p-6 gap-3">
                        <p className="text-[9px] font-black text-[#9fe600] uppercase tracking-[0.4em] mb-4">Mover Protocolo</p>
                        <div className="grid grid-cols-2 gap-2 w-full">
@@ -139,7 +134,6 @@ export default function KanbanPage() {
              )}
           </div>
 
-          {/* Footer Ação */}
           <div className="p-6">
              <button className="w-full py-4 bg-white/5 hover:bg-[#9fe600] hover:text-[#000c24] hover:scale-[1.02] active:scale-[0.98] border border-white/5 rounded-2xl text-[9px] font-black uppercase tracking-[0.3em] text-white/40 transition-all shadow-xl">
                 + Iniciar Protocolo

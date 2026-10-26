@@ -22,13 +22,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="min-h-screen bg-[#000c24] text-[#ffffff] flex font-[Inter] overflow-hidden relative">
       
-      {/* ── SIDEBAR PROFESSIONALLY ADAPTIVE ── */}
       <aside className={`fixed lg:relative z-40 h-screen transition-all duration-500 ease-[0.16, 1, 0.3, 1] border-r border-white/5 bg-[#000c24]/80 backdrop-blur-3xl rounded-r-[3rem] shadow-[20px_0_100px_rgba(0,0,0,0.5)] ${
         menuOpen ? "w-[320px] translate-x-0" : "w-[320px] -translate-x-full lg:translate-x-0"
       }`}>
         <div className="p-10 lg:p-12">
           <div className="flex items-center gap-4 mb-2">
-             {/* Logo Frame */}
              <div className="relative">
                <AlphaCleanLogo size={48} />
              </div>
@@ -61,7 +59,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </div>
                 <span className="font-[Syncopate] text-[10px] uppercase font-black tracking-[0.2em]">{item.label}</span>
                 
-                {/* Hover Glow */}
                 {!isActive && isHovered === item.href && (
                   <motion.div 
                     layoutId="sidebar-hover"
@@ -97,10 +94,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
       </aside>
 
-      {/* ── MAIN CONTENT PROFESSIONALLY SPACED ── */}
       <main className="flex-1 h-screen overflow-y-auto scroll-smooth bg-[#000c24] relative lg:px-20 py-12 px-6 overflow-x-hidden scrollbar-hide">
         
-        {/* MOBILE HEADER OVERRIDE */}
         <div className="lg:hidden flex items-center justify-between mb-10 bg-white/5 p-6 rounded-3xl border border-white/10">
            <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-lg bg-[#9fe600]/10 flex items-center justify-center text-[#9fe600] font-black">α</div>
@@ -116,7 +111,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
            </button>
         </div>
 
-        {/* TOP INTERACTIVE BAR - SCALED FOR DESKTOP */}
         <header className="hidden lg:flex items-center justify-between mb-16 relative">
            <div>
               <h1 className="text-[13px] font-[Syncopate] font-black tracking-[0.6em] uppercase text-white/90">
@@ -129,7 +123,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
            </div>
 
            <div className="flex items-center gap-8">
-              {/* Global Search Surgical */}
               <div className="bg-white/5 border border-white/10 rounded-[1.5rem] px-8 py-3 flex items-center gap-4 focus-within:border-[#9fe600]/30 transition-all w-[400px]">
                  <span className="text-white/20 opacity-50">🔍</span>
                  <input 
@@ -151,12 +144,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
            </div>
         </header>
 
-        {/* Dynamic Page Content */}
         <div className="pb-32 lg:pb-12 max-w-[1600px]">
            {children}
         </div>
 
-        {/* Floating Contextual Helper */}
         <div className="fixed bottom-12 right-12 z-50">
            <button className="w-20 h-20 rounded-[2.5rem] bg-[#000c24] border-4 border-[#9fe600] flex items-center justify-center text-3xl shadow-[0_20px_100px_rgba(159,230,0,0.3)] hover:scale-110 active:scale-95 transition-all group">
               <span className="group-hover:rotate-12 transition-transform">🔧</span>

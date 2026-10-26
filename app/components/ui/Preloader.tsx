@@ -30,7 +30,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
       {phase !== "done" && (
         <div className="fixed inset-0 z-[9999] overflow-hidden bg-[#000c24] select-none pointer-events-none">
           
-          {/* ── LOGO PHASE ── */}
           <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: phase === "wipe" ? 0 : 1 }}
@@ -42,7 +41,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center gap-10"
             >
-               {/* Logo Frame */}
                <div className="relative">
                  <motion.div 
                     animate={{ rotate: 360 }}
@@ -52,7 +50,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                  <AlphaCleanLogo size={120} />
                </div>
 
-              {/* Textual Identity */}
               <div className="text-center overflow-hidden">
                 <motion.div
                   initial={{ y: "100%" }}
@@ -73,7 +70,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                 </motion.div>
               </div>
 
-              {/* Slow Pulse Glow */}
               <motion.div 
                 animate={{ opacity: [0.3, 0.6, 0.3] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -82,17 +78,14 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             </motion.div>
           </motion.div>
 
-          {/* ── THE SQUEEGEE WIPE (Cosmic Navy) ── */}
           <motion.div
             className="absolute inset-0 z-20"
             initial={{ x: "0%" }}
             animate={phase === "wipe" ? { x: "100%" } : { x: "0%" }}
             transition={{ duration: WIPE_DUR, ease: WIPE_EASE }}
           >
-            {/* BRAND MASK (Trailing) */}
             <div className="absolute inset-0 bg-[#000c24]" />
 
-            {/* THE WATER BLADE (Leading edge) */}
             <div 
               className="absolute top-0 bottom-0 -left-[100px] w-[100px] pointer-events-none"
               style={{
@@ -101,11 +94,9 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                 borderRight: "2px solid rgba(255,255,255,0.4)"
               }}
             >
-              {/* Prism edge */}
               <div className="absolute top-0 bottom-0 right-0 w-[4px] bg-gradient-to-b from-transparent via-[#fff] to-transparent opacity-40" />
             </div>
 
-            {/* Film Grain Texture on the mask for cinematic look */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none noise-bg" />
           </motion.div>
 

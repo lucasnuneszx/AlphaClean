@@ -38,7 +38,6 @@ export function Header() {
       >
         <div className="container-custom flex items-center justify-between">
 
-          {/* LOGO */}
           <Link href="/" className="flex items-center gap-3 sm:gap-4 group relative z-[110]">
             <div className="relative group-hover:scale-110 transition-transform">
               <AlphaCleanLogo className="w-[34px] h-[34px] xs:w-[38px] xs:h-[38px] sm:w-[48px] sm:h-[48px]" glow={false} />
@@ -51,7 +50,6 @@ export function Header() {
             </div>
           </Link>
 
-          {/* DESKTOP NAV */}
           <nav className="hidden lg:flex items-center gap-12">
             {NAV_LINKS.map((link, index) => (
               <motion.div
@@ -79,7 +77,6 @@ export function Header() {
               Agendar
             </button>
 
-            {/* MOBILE TOGGLE - SURGICAL DESIGN */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden w-12 h-12 flex flex-col items-center justify-center gap-1.5 focus:outline-none group relative"
@@ -102,7 +99,6 @@ export function Header() {
         </div>
       </header>
 
-      {/* MOBILE MENU - FULL PAGE LAB EXPERIENCE */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -112,7 +108,6 @@ export function Header() {
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
             className="fixed inset-0 z-[100] bg-[#000c24] flex flex-col p-12 lg:hidden overflow-hidden"
           >
-            {/* Background Texture */}
             <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
               <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#9fe600]/10 blur-[150px] rounded-full -mr-96 -mt-96" />
               <div className="noise-bg absolute inset-0 opacity-20" />

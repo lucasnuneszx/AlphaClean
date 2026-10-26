@@ -16,7 +16,6 @@ export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoP
       className={`relative flex items-center justify-center ${!hasSizeClass ? 'w-10 h-10' : ''} ${className}`}
       style={!hasSizeClass ? { width: size, height: size } : {}}
     >
-      {/* GLOW LAYER */}
       {glow && (
         <motion.div
           animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -25,7 +24,6 @@ export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoP
         />
       )}
 
-      {/* SVG MARK - THE SURGICAL ALPHA */}
       <svg
         width="100%"
         height="100%"
@@ -34,7 +32,6 @@ export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoP
         xmlns="http://www.w3.org/2000/svg"
         className="relative z-10"
       >
-        {/* Abstract "A" Structure - Geometric & Precise */}
         <motion.path
           d="M50 15L15 85H30L50 40L70 85H85L50 15Z"
           stroke="#9fe600"
@@ -45,7 +42,6 @@ export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoP
           transition={{ duration: 1.5, ease: "circOut" }}
         />
         
-        {/* Internal Detail - The Precision Core */}
         <motion.path
           d="M40 55H60"
           stroke="#9fe600"
@@ -56,7 +52,6 @@ export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoP
           transition={{ delay: 0.8, duration: 0.8 }}
         />
 
-        {/* Floating Accents - Technical Aesthetic */}
         <motion.circle 
           cx="50" cy="50" r="45" 
           stroke="#9fe600" 
@@ -67,7 +62,6 @@ export function AlphaCleanLogo({ size = 40, className = "", glow = true }: LogoP
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
 
-        {/* Corner Brackets - Laboratory OS feel */}
         <path d="M10 20V10H20" stroke="#9fe600" strokeWidth="2" strokeOpacity="0.4" />
         <path d="M80 10H90V20" stroke="#9fe600" strokeWidth="2" strokeOpacity="0.4" />
         <path d="M90 80V90H80" stroke="#9fe600" strokeWidth="2" strokeOpacity="0.4" />

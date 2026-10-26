@@ -3,7 +3,6 @@ import prisma from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
-// Este endpoint recebe webhooks do Chatwoot
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -11,35 +10,32 @@ export async function POST(req: Request) {
 
     console.log(`[Chatwoot Webhook] Event: ${event}`);
 
-    // Exemplo: Se uma mensagem for criada pelo bot confirmando agendamento
+    // Mensagem do bot contendo "confirmado" indica agendamento fechado no chat
     if (event === "message_created" && message?.content?.toLowerCase().includes("confirmado")) {
-      // 1. Extrair dados da conversa
       const chatwootId = conversation.id.toString();
       const clientName = contact.name || "Cliente WhatsApp";
       const clientPhone = contact.phone_number || "";
 
-      // 2. Criar ou Atualizar Cliente
       const client = await prisma.client.upsert({
         where: { phone: clientPhone },
         update: { name: clientName },
         create: { name: clientName, phone: clientPhone },
       });
 
-      // 3. Criar Agendamento (JobOrder) automático
-      // Aqui poderíamos usar IA para extrair Serviço e Veículo do texto, 
-      // mas vamos criar um placeholder para o admin completar no Kanban.
+      // Serviço e veículo não vêm estruturados no chat: a ordem é criada com
+      // dados provisórios para o admin completar no Kanban.
       await prisma.jobOrder.create({
         data: {
           chatwoot_id: chatwootId,
           status: "SCHEDULED",
-          scheduled_date: new Date(Date.now() + 86400000), // Placeholder para amanhã
-          total_price: 0, // Admin define no sistema
+          scheduled_date: new Date(Date.now() + 86400000),
+          total_price: 0,
           vehicle: {
             create: {
               client_id: client.id,
               brand: "Pendente",
               model: "Consultar Chat",
-              category: "SEDAN", // Default
+              category: "SEDAN",
             }
           },
           service: {
@@ -54,7 +50,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: "Agendamento AlphaClean Sincronizado via Chatwoot" });
     }
 
-    // Se o status da conversa mudar no Chatwoot (ex: resolvido), podemos mover o Kanban para "COMPLETED"
+    // Conversa resolvida no Chatwoot encerra a ordem no Kanban
     if (event === "conversation_status_changed" && body.status === "resolved") {
         await prisma.jobOrder.updateMany({
             where: { chatwoot_id: conversation.id.toString() },

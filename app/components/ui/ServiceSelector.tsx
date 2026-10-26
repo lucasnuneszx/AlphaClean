@@ -88,7 +88,6 @@ export function ServiceSelector() {
 
       <div className="container-custom mx-auto">
         
-        {/* Header */}
         <div className="mb-20 text-center md:text-left">
            <span className="font-[Inter] text-[10px] text-[#9fe600] tracking-[0.4em] uppercase font-bold mb-4 block underline decoration-[#9fe600]/30 underline-offset-8">Protocolo de Limpeza</span>
            <h2 className="font-[Syncopate] text-4xl lg:text-5xl font-black text-white uppercase tracking-tight">
@@ -99,7 +98,6 @@ export function ServiceSelector() {
 
         <div className="space-y-24">
            
-           {/* STEP 1: SIZE SELECTOR */}
            <div className="space-y-8">
               <div className="flex items-center gap-4">
                  <div className="w-8 h-8 rounded-full bg-[#9fe600] text-[#000c24] flex items-center justify-center font-black text-xs">1</div>
@@ -121,7 +119,6 @@ export function ServiceSelector() {
               </div>
            </div>
 
-           {/* STEP 2: BASE SERVICE */}
            <div className="space-y-8">
               <div className="flex items-center gap-4">
                  <div className="w-8 h-8 rounded-full bg-[#9fe600] text-[#000c24] flex items-center justify-center font-black text-xs">2</div>
@@ -149,7 +146,6 @@ export function ServiceSelector() {
               </div>
            </div>
 
-           {/* STEP 3: ADD-ONS (EXTRAS) */}
            <div className="space-y-12">
               <div className="flex items-center gap-4">
                  <div className="w-8 h-8 rounded-full bg-[#9fe600] text-[#000c24] flex items-center justify-center font-black text-xs">3</div>
@@ -157,7 +153,6 @@ export function ServiceSelector() {
               </div>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                 {/* Internal Care */}
                  <div className="space-y-6">
                     <h4 className="font-[Roboto_Mono] text-[10px] text-[#9fe600]/40 uppercase tracking-[0.4em] font-black pb-4 border-b border-white/5">Cuidado Interno</h4>
                     <div className="space-y-3">
@@ -182,7 +177,6 @@ export function ServiceSelector() {
                     </div>
                  </div>
 
-                 {/* External Care */}
                  <div className="space-y-6">
                     <h4 className="font-[Roboto_Mono] text-[10px] text-[#9fe600]/40 uppercase tracking-[0.4em] font-black pb-4 border-b border-white/5">Cuidado Externo</h4>
                     <div className="space-y-3">
@@ -209,7 +203,6 @@ export function ServiceSelector() {
               </div>
            </div>
 
-           {/* STEP 4: VEHICLE INFO */}
            <div className="space-y-12">
               <div className="flex items-center gap-4">
                  <div className="w-8 h-8 rounded-full bg-[#9fe600] text-[#000c24] flex items-center justify-center font-black text-xs">4</div>
@@ -242,7 +235,6 @@ export function ServiceSelector() {
               </div>
            </div>
 
-           {/* CONSULT SERVICES */}
            <div className="pt-12 border-t border-white/5 text-center">
               <span className="text-[10px] text-white/20 uppercase tracking-[0.4em] font-black mb-8 block">Serviços Sob Consulta</span>
               <div className="flex flex-wrap justify-center gap-4">
@@ -254,7 +246,6 @@ export function ServiceSelector() {
               </div>
            </div>
 
-           {/* FINAL SUMMARY */}
            <div className="p-10 md:p-16 bg-gradient-to-br from-[#9fe600]/10 to-transparent border-2 border-[#9fe600]/20 rounded-[3rem] relative overflow-hidden group">
               <div className="flex flex-col lg:flex-row justify-between items-center gap-12 relative z-10">
                  <div className="text-center md:text-left">

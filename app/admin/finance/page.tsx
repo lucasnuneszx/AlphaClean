@@ -13,7 +13,6 @@ const TRANSACTIONS = [
 export default function FinancePage() {
   return (
     <div className="space-y-12">
-      {/* ── TOP ACTION BAR ── */}
       <div className="flex justify-between items-center bg-[#000c24]/40 border border-white/5 p-10 rounded-[2.5rem] relative overflow-hidden group shadow-2xl">
          <div className="flex flex-col z-10">
             <h2 className="font-[Syncopate] text-[11px] font-black text-white uppercase tracking-[0.4em]">Controle de Caixa Lab</h2>
@@ -33,7 +32,6 @@ export default function FinancePage() {
          <div className="absolute -bottom-12 -right-12 text-9xl opacity-5 group-hover:scale-110 transition-transform">💵</div>
       </div>
 
-      {/* ── TRANSACTIONS TABLE ── */}
       <div className="bg-[#000c24]/40 border border-white/5 rounded-[2.5rem] overflow-hidden">
          <div className="overflow-x-auto scrollbar-hide">
             <table className="w-full text-left border-collapse min-w-[800px]">
@@ -84,7 +82,6 @@ export default function FinancePage() {
          </div>
       </div>
 
-      {/* ── SUMMARY CARDS ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
          <motion.div 
            whileHover={{ scale: 1.02 }}
