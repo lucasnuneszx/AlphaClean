@@ -1,5 +1,6 @@
 "use client";
 
+import { whatsappLink } from "@/lib/whatsapp";
 import { useState, useEffect } from "react";
 import { AlphaCleanLogo } from "./AlphaCleanLogo";
 import Link from "next/link";
@@ -22,9 +23,8 @@ export function Header() {
   }, []);
 
   const handleWhatsApp = () => {
-    const WA_NUMBER = "5511999990000";
     const text = "Ola! Vim pelo site da Alpha Clean e gostaria de agendar uma Lavagem Técnica. Poderia me ajudar?";
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    const url = whatsappLink(text);
     window.open(url, "_blank");
   };
 

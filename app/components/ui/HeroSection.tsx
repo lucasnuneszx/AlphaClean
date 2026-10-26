@@ -1,5 +1,6 @@
 "use client";
 
+import { whatsappLink } from "@/lib/whatsapp";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
@@ -61,9 +62,8 @@ export function HeroSection() {
   const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   const handleWhatsApp = () => {
-    const WA_NUMBER = "5511999990000";
     const text = "Ola! Vim pelo site da Alpha Clean e gostaria de agendar um serviço de estética automotiva. Poderia me ajudar?";
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    const url = whatsappLink(text);
     window.open(url, "_blank");
   };
 

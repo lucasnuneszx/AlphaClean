@@ -1,5 +1,6 @@
 "use client";
 
+import { whatsappLink } from "@/lib/whatsapp";
 import { useState } from "react";
 
 type Size = "SMALL" | "MEDIUM" | "LARGE";
@@ -71,14 +72,13 @@ export function ServiceSelector() {
   };
 
   const handleWhatsApp = () => {
-    const WA_NUMBER = "5511999990000";
     const addOnNames = ADD_ONS.filter(a => selectedAddOns.includes(a.id)).map(a => a.name).join(", ");
     const vehicleTypeLabel = activeBase.type === "MOTO" ? "Modelo da moto é" : "Modelo do carro é";
     const vehicleInfo = vehicleModel && vehiclePlate ? `${vehicleTypeLabel} ${vehicleModel} e placa ${vehiclePlate}. ` : "";
     
     const text = `Ola! Vim pelo site da Alpha Clean. ${vehicleInfo}Quero agendar: ${activeBase.name} (${SIZES.find(s => s.id === size)?.label})${addOnNames ? ` + Adicionais: ${addOnNames}` : ""}. Total: R$ ${calculateTotal()}. Poderia confirmar?`;
     
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    const url = whatsappLink(text);
     window.open(url, "_blank");
   };
 

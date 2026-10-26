@@ -6,10 +6,9 @@ import { Header } from "./components/ui/Header";
 import { HeroSection } from "./components/ui/HeroSection";
 import { ServiceSelector } from "./components/ui/ServiceSelector";
 import { Footer } from "./components/ui/Footer";
+import { whatsappLink } from "@/lib/whatsapp";
 import { Preloader } from "./components/ui/Preloader";
 import { BrandTicker } from "./components/ui/BrandTicker";
-
-const WA_NUMBER = "5511999990000";
 
 const IconWA = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -23,7 +22,7 @@ function FloatingWA() {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 3.5, type: "spring", stiffness: 180, damping: 12 }}
-      href={`https://wa.me/${WA_NUMBER}`}
+      href={whatsappLink()}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-transform"

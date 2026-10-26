@@ -16,7 +16,7 @@ const NAV_ITEMS = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [isHovered, setIsHovered] = useState<string | null>(null);
+  const [hoveredHref, setHoveredHref] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -46,8 +46,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link 
                 key={item.href} 
                 href={item.href}
-                onMouseEnter={() => setIsHovered(item.href)}
-                onMouseLeave={() => setIsHovered(null)}
+                onMouseEnter={() => setHoveredHref(item.href)}
+                onMouseLeave={() => setHoveredHref(null)}
                 className={`flex items-center gap-5 px-6 py-5 rounded-[2rem] transition-all relative group ${
                   isActive 
                   ? "bg-[#9fe600] text-[#000c24] font-black shadow-[0_20px_50px_rgba(159,230,0,0.2)]" 
@@ -59,7 +59,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </div>
                 <span className="font-[Syncopate] text-[10px] uppercase font-black tracking-[0.2em]">{item.label}</span>
                 
-                {!isActive && isHovered === item.href && (
+                {!isActive && hoveredHref === item.href && (
                   <motion.div 
                     layoutId="sidebar-hover"
                     className="absolute inset-0 bg-white/5 rounded-[2rem] -z-10 border border-white/5 shadow-inner"
